@@ -4,4 +4,8 @@ class BricksController < ApplicationController
   def index
     @bricks = Brick.all
   end
+
+  def show
+    @brick = Brick.find(params[:id])
+  end
 end

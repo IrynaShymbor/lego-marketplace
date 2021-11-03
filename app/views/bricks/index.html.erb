@@ -1,2 +1,12 @@
 <h1>Welcome to Lego Marketplace!</h1>
 
+<% @bricks.each do |brick| %>
+  <h3><%= brick.name %></h3>
+  <h5><%= brick.category.name %></h5>
+  <p><%= brick.description %></p>
+
+  <%= link_to 'View', brick_path(brick) %>
+  <%= link_to 'Edit', edit_brick_path(brick) %>
+  <%= link_to 'Delete', brick_path(brick) %>
+<% end %>
+

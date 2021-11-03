@@ -1,0 +1,9 @@
+<h3><%= @brick.name %></h3>
+  <h5>Category: <%= @brick.category.name %></h5>
+  <h5>Price: <%= @brick.price %></h5>
+  <p><%= @brick.description %></p>
+
+  <% if user_signed_in? && current_user.id == @brick.user.id %>
+    <%= link_to 'Edit', edit_brick_path(@brick) %>
+    <%= link_to 'Delete', brick_path(@brick) %>
+  <% end %>
