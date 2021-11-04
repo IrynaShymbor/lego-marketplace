@@ -6,7 +6,9 @@
   <p><%= brick.description %></p>
 
   <%= link_to 'View', brick_path(brick) %>
-  <%= link_to 'Edit', edit_brick_path(brick) %>
-  <%= link_to 'Delete', brick_path(brick) %>
+  <% if user_signed_in? && current_user.id == brick.user.id %>
+    <%= link_to 'Edit', edit_brick_path(brick) %>
+    <%= link_to 'Delete', brick_path(brick), method: :delete, data: { confirm: 'Are you sure?' } %>
+<% end %>
 <% end %>
 
