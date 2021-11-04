@@ -1,0 +1,15 @@
+<%= form_with model: @brick, action: '/bricks' do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :description %>
+  <%= form.text_field :description %>
+
+  <%= form.label :price %>
+  <%= form.text_field :price %>
+
+  <%= form.label :category %>
+  <%= form.collection_select :category_id, Category.all, :id, :name, prompt: 'Choose category' %>
+
+  <%= form.submit %>
+<% end %>
